@@ -92,16 +92,23 @@ function FactList() {
 
   return <section>
     <ul className="facts-list">{ 
-      facts.map((fact) => (
-        <li key={fact.id} class="fact">
+      facts.map((fact) => 
+        <Fact key={fact.id} fact={fact} />)
+     }</ul>
+  </section>
+}
+
+function Fact({ fact }) {
+  
+
+  return <li class="fact">
                 <p>
                   {fact.text}
                   <a
                     className="source"
                     href={fact.source}
                     target="_blank"
-                    >(Source)</a
-                  >
+                    >(Source)</a>
                 </p>
                 <span className="tag" style= {{backgroundColor: CATEGORIES.find((cat) => cat.name === fact.category).color}}
                   >{fact.category}</span
@@ -112,9 +119,7 @@ function FactList() {
                   <button>⛔️ {fact.votesFalse}</button>
                 </div>
               </li>
-      ))
-     }</ul>
-  </section>
+
 }
 
 export default App;
