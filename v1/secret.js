@@ -1,0 +1,1 @@
+supabase password = dc4CGFBfmQXA4eKG
