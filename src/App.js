@@ -45,6 +45,17 @@ const initialFacts = [
 	},
 ];
 
+function Counter() {
+	return (
+		<div>
+			<span style={{ fontSize: "40px" }}>8</span>
+			<button className="btn btn-large" onClick={() => console.log("click")}>
+				+1
+			</button>
+		</div>
+	);
+}
+
 function App() {
 	return (
 		<>
@@ -62,7 +73,7 @@ function App() {
 
 				<button className="btn btn-large btn-open">Share a fact</button>
 			</header>
-
+			<Counter />
 			<NewFactForm />
 			<main className="main">
 				<CategoryFilter />
@@ -85,7 +96,7 @@ function CategoryFilter() {
 				</li>
 
 				{CATEGORIES.map((cat) => (
-					<li className="category">
+					<li key={cat.name} className="category">
 						<button
 							className="btn btn-category"
 							style={{ backgroundColor: cat.color }}>
@@ -115,7 +126,7 @@ function FactList() {
 
 function Fact({ fact }) {
 	return (
-		<li class="fact">
+		<li className="fact">
 			<p>
 				{fact.text}
 				<a className="source" href={fact.source} target="_blank">
